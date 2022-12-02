@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -p -m -A | tr -d ' '
+ls -a -p -m
