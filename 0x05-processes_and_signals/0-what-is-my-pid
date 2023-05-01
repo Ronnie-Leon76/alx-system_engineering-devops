@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# displays the scrip's own PID
 echo $$
