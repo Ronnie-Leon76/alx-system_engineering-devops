@@ -2,24 +2,15 @@
 # This script displays the time for 12 hours and 59 minutes
 
 h=0
-m=0
+
 while [ $h -le 12 ]
 do
-    while [ $m -le 59 ]
-    do
-        if [ $h -eq 12 ] && [ $m -eq 59 ]
-        then
-            echo "$h:$m"
-            break 2
-        elif [ $m -eq 59 ]
-        then
-            echo "$h:$m"
-            break
-        else
-            echo "$h:$m"
-        fi
-        m=$(( $m + 1 ))
-    done
-    h=$(( $h + 1 ))
-    m=0
+	echo "Hour: $h"
+	m=1
+	while [ $m -le 59 ]
+	do
+		echo "$m"
+		(( m++ ))
+	done
+	(( h++ ))
 done
