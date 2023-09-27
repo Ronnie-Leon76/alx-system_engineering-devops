@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Script configures a new Ubuntu machine with nginx and redirects using 301 Moved Permanently to another page
+
+sudo apt-get update
+sudo apt-get -y install nginx
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.ochiengronnie.netlify.app permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+sudo service nginx start
