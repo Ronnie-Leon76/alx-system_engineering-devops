@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script installs and configures HAproxy on lb-01 server to redirect HTTP traffic to web-01 and web-02 servers
+apt-get update
+apt-get -y install haproxy
+string_for_replacement="frontend http_front\n\tbind *:80\n\tmode http\n\tdefault_backend http_back\n\nbackend http_back\n\tmode http\n\tbalance roundrobin\n\tserver web-01 100.26.232.13:80 check\n\tserver web-02 100.26.166.50:80 check"
+sudo sed -i "s/frontend http_front/$string_for_replacement/" /etc/haproxy/haproxy.cfg
