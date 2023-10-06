@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Script displays information about subdomains
+
+# check if argument count is equal to 1
+if [ $# -eq 1 ]
+then
+    # get the subdomains
+    subdomains=$(dig +short $1 | grep -E "^[a-zA-Z0-9]" | sort -u)
+    # print the subdomains
+    for subdomain in $subdomains
+    do
+        echo $subdomain
+    done
+else
+    echo "Usage: $0 <domain>"
+    exit 1
+fi
