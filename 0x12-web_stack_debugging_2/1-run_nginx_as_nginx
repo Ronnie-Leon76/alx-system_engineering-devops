@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that configures container to fit the following requirements:
+# - nginx must be running as nginx user and must be listening on all active IPs on port 8080
+
+# Run nginx as nginx user
+sed -i 's/user  nginx;/user  nginx nginx;/g' /etc/nginx/nginx.conf
+
+# Listen on all active IPs on port 8080
+sed -i 's/listen       80;/listen       8080;/g' /etc/nginx/nginx.conf
