@@ -2,6 +2,10 @@
 # Script that configures container to fit the following requirements:
 # - nginx must be running as nginx user and must be listening on all active IPs on port 8080
 
+# Install nginx
+apt-get update
+apt-get install -y nginx
+
 # Run nginx as nginx user
 sed -i 's/user  nginx;/user  nginx nginx;/g' /etc/nginx/nginx.conf
 
